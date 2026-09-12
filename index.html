@@ -1,374 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AG PILOT CAL</title>
+    <title>AG PILOT CAL</title>
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1b5e20">
+    <meta name="description" content="Herramienta profesional para calibración de pilotos agrícolas">
+    <meta name="theme-color" content="#1b5e20">
 
-<style>
+    manifest.json
+    icon-192.png
 
-body{
-    margin:0;
-    background:#111;
-    color:white;
-    font-family:Arial, Helvetica, sans-serif;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:15px;
-}
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background:#f4f6f8;
+            color:#333;
+        }
 
-.header img{
-    width:100%;
-    max-height:260px;
-    object-fit:cover;
-    border-radius:12px;
-}
+        header{
+            background:#1b5e20;
+            color:white;
+            text-align:center;
+            padding:20px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        }
 
-.titulo{
-    text-align:center;
-    margin:15px 0;
-}
+        .logo{
+            width:100px;
+            height:auto;
+            margin-bottom:10px;
+        }
 
-.titulo h1{
-    margin:0;
-    font-size:48px;
-}
+        header h1{
+            font-size:2rem;
+            margin-bottom:5px;
+        }
 
-.titulo p{
-    margin-top:10px;
-    font-size:22px;
-}
+        header p{
+            font-size:1rem;
+            opacity:0.9;
+        }
 
-.card{
-    background:#1e1e1e;
-    padding:18px;
-    border-radius:12px;
-    margin-top:15px;
-}
+        .hero{
+            width:100%;
+            max-height:350px;
+            object-fit:cover;
+            display:block;
+        }
 
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:8px;
-    font-size:20px;
-}
+        main{
+            max-width:1000px;
+            margin:auto;
+            padding:20px;
+        }
 
-select,input{
-    width:100%;
-    padding:14px;
-    font-size:22px;
-    border-radius:10px;
-    border:none;
-    box-sizing:border-box;
-}
+        .card{
+            background:white;
+            border-radius:12px;
+            padding:25px;
+            margin-bottom:20px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.08);
+        }
 
-.btn{
-    width:100%;
-    padding:16px;
-    margin-top:15px;
-    font-size:22px;
-    font-weight:bold;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-}
+        .card h2{
+            color:#1b5e20;
+            margin-bottom:15px;
+        }
 
-.calcular{
-    background:#f4d130;
-    color:black;
-}
+        .card p{
+            line-height:1.7;
+        }
 
-.reiniciar{
-    background:#3a3a3a;
-    color:white;
-}
+        .buttons{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:15px;
+            margin-top:20px;
+        }
 
-.resultado{
-    display:none;
-}
+        .btn{
+            display:block;
+            text-decoration:none;
+            text-align:center;
+            background:#2e7d32;
+            color:white;
+            padding:18px;
+            border-radius:10px;
+            font-weight:bold;
+            transition:0.3s;
+        }
 
-.box{
-    background:#263238;
-    padding:15px;
-    border-radius:10px;
-    margin-top:12px;
-}
+        .btn:hover{
+            background:#1b5e20;
+        }
 
-.success{
-    color:#4caf50;
-    font-weight:bold;
-}
+        .btn.disabled{
+            background:#9e9e9e;
+            cursor:not-allowed;
+        }
 
-.warning{
-    color:#ff9800;
-    font-weight:bold;
-}
+        footer{
+            text-align:center;
+            padding:25px;
+            color:#666;
+            font-size:0.85rem;
+        }
 
-.referencia{
-    width:100%;
-    border-radius:10px;
-    margin-top:15px;
-}
+        .contact{
+            margin-top:8px;
+        }
 
-.footer{
-    text-align:center;
-    margin-top:25px;
-    color:#cccccc;
-    font-size:16px;
-}
+        @media(max-width:768px){
 
-.footer hr{
-    margin-bottom:20px;
-}
+            header h1{
+                font-size:1.6rem;
+            }
 
-</style>
+            .card{
+                padding:20px;
+            }
+
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+<header>
 
-<div class="header">
-    portada.jpg
-</div>
+    logo.png
 
-<div class="titulo">
-<h1>AG PILOT CAL</h1>
-<p>By Pablo Ortiz</p>
-</div>
+    <h1>AG PILOT CAL</h1>
 
-<div class="card">
+    <p>Calibración profesional de pilotos agrícolas</p>
 
-<label>Espaciamiento entre surcos (cm)</label>
+</header>
 
-<select id="surco">
+header.jpg
 
-<option value="0.175">17,5</option>
-<option value="0.19">19</option>
-<option value="0.20">20</option>
-<option value="0.21">21</option>
-<option value="0.26">26</option>
-<option value="0.35">35</option>
-<option value="0.38">38</option>
-<option value="0.40">40</option>
-<option value="0.42">42</option>
-<option value="0.525" selected>52,5</option>
-<option value="0.63">63</option>
-<option value="0.70">70</option>
-<option value="0.762">76,2</option>
-<option value="0.80">80</option>
-<option value="0.90">90</option>
-<option value="1.00">100</option>
+<main>
 
-</select>
+    <section class="card">
 
-<label>Medida Izquierda (m)</label>
+        <h2>Bienvenido</h2>
 
-<input
-id="izq"
-type="number"
-step="0.001"
-placeholder="Ej: 0.71">
+        <p>
+            AG PILOT CAL es una herramienta diseñada para asistir a técnicos
+            y operadores en la calibración de sistemas de guiado agrícola.
+            El objetivo es realizar ajustes precisos y rápidos durante las
+            operaciones de siembra, simplificando el proceso de trabajo en campo.
+        </p>
 
-<label>Medida Derecha (m)</label>
+    </section>
 
-<input
-id="der"
-type="number"
-step="0.001"
-placeholder="Ej: 0.34">
+    <section class="card">
 
-<button class="btn calcular" onclick="calcular()">
-CALCULAR
-</button>
+        <h2>Módulos disponibles</h2>
 
-<button class="btn reiniciar" onclick="reiniciar()">
-REINICIAR
-</button>
+        <div class="buttons">
 
-</div>
+            jd-siembra.html
+                John Deere Siembra
+            </a>
 
-<div class="card resultado" id="resultado">
+            #
+                Trimble (Próximamente)
+            </a>
 
-<h2>Diagnóstico</h2>
+            #
+                Topcon (Próximamente)
+            </a>
 
-<div id="estado"></div>
+            #
+                Raven (Próximamente)
+            </a>
 
-<div class="box">
+        </div>
 
-<h3>Corrección Valor C</h3>
+    </section>
 
-<div id="valorc"></div>
+    <section class="card">
 
-<br>
+        <h2>Objetivo de la aplicación</h2>
 
-✅ Compensar SIEMPRE hacia el lado más cerrado
+        <p>
+            La aplicación permite ingresar mediciones de campo y obtener
+            recomendaciones de ajuste de forma simple, clara y profesional,
+            sin exponer cálculos internos ni procedimientos técnicos al usuario final.
+        </p>
 
-<div id="direccion"></div>
+    </section>
 
-</div>
+</main>
 
-<div class="box">
+<footer>
 
-<h3>Corrección Ancho de Apero</h3>
+    <div><strong>AG PILOT CAL</strong></div>
 
-<div id="ancho"></div>
+    <div class="contact">
+        Pablo Ortiz | pabloortiz01@hotmail.com
+    </div>
 
-</div>
-
-<img srcia.png
-
-</div>
-
-<div class="footer">
-
-<hr>
-
-<b>Contacto</b>
-
-<br><br>
-
-Pablo Ortiz
-
-<br><br>
-
-📞 03583 486922
-
-<br><br>
-
-📧 pabloortiz01@hotmail.com
-
-<br><br>
-
-AG PILOT CAL
-
-</div>
-
-</div>
+</footer>
 
 <script>
 
-function calcular(){
-
-let surco =
-parseFloat(
-document.getElementById("surco").value
-);
-
-let izq =
-parseFloat(
-document.getElementById("izq").value
-);
-
-let der =
-parseFloat(
-document.getElementById("der").value
-);
-
-if(isNaN(izq) || isNaN(der)){
-
-alert("Ingrese ambas mediciones");
-
-return;
-
-}
-
-let teorico = surco * 2;
-
-let suma = izq + der;
-
-let valorC =
-Math.abs(izq - der) / 4;
-
-let direccion="";
-
-if(izq > der){
-
-direccion =
-"➡ Mover hacia la DERECHA";
-
-}else if(der > izq){
-
-direccion =
-"⬅ Mover hacia la IZQUIERDA";
-
-}else{
-
-direccion =
-"Sin corrección";
-
-}
-
-let correccionApero =
-(teorico - suma) / 2;
-
-if(Math.abs(teorico - suma) <= 0.02){
-
-document.getElementById("estado").innerHTML =
-'<span class="success">🟢 APERO CENTRADO</span>';
-
-}else{
-
-document.getElementById("estado").innerHTML =
-'<span class="warning">⚠ VERIFICAR CENTRADO</span>';
-
-}
-
-document.getElementById("valorc").innerHTML =
-valorC.toFixed(2) + " m";
-
-document.getElementById("direccion").innerHTML =
-direccion;
-
-if(correccionApero > 0){
-
-document.getElementById("ancho").innerHTML =
-"⬆ AUMENTAR " +
-correccionApero.toFixed(2) +
-" m";
-
-}else if(correccionApero < 0){
-
-document.getElementById("ancho").innerHTML =
-"⬇ REDUCIR " +
-Math.abs(correccionApero).toFixed(2) +
-" m";
-
-}else{
-
-document.getElementById("ancho").innerHTML =
-"✅ Sin corrección";
-
-}
-
-document.getElementById("resultado")
-.style.display = "block";
-
-}
-
-function reiniciar(){
-
-document.getElementById("izq").value="";
-document.getElementById("der").value="";
-
-document.getElementById("resultado")
-.style.display="none";
-
-}
-
-if("serviceWorker" in navigator){
-
-navigator.serviceWorker.register(
-"service-worker.js"
-);
-
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js');
+    });
 }
 
 </script>
