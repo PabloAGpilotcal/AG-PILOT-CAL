@@ -1,223 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AG PILOT CAL</title>
+<title>AG PILOT CAL</title>
 
-    <meta name="description" content="Herramienta profesional para calibración de pilotos agrícolas">
-    <meta name="theme-color" content="#1b5e20">
+<meta name="description" content="Herramienta profesional para calibración de pilotos agrícolas">
+<meta name="theme-color" content="#1b5e20">
 
-    manifest.json
-    icon-192.png
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            background:#f4f6f8;
-            color:#333;
-        }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#000;
+    color:#fff;
+}
 
-        header{
-            background:#1b5e20;
-            color:white;
-            text-align:center;
-            padding:20px;
-            box-shadow:0 2px 8px rgba(0,0,0,0.2);
-        }
+header{
+    text-align:center;
+    background:#111;
+    padding:20px;
+}
 
-        .logo{
-            width:100px;
-            height:auto;
-            margin-bottom:10px;
-        }
+.logo{
+    width:120px;
+    border-radius:20px;
+}
 
-        header h1{
-            font-size:2rem;
-            margin-bottom:5px;
-        }
+h1{
+    margin-top:10px;
+    font-size:2.5rem;
+}
 
-        header p{
-            font-size:1rem;
-            opacity:0.9;
-        }
+.subtitulo{
+    color:#d4d4d4;
+    margin-top:5px;
+}
 
-        .hero{
-            width:100%;
-            max-height:350px;
-            object-fit:cover;
-            display:block;
-        }
+.portada{
+    width:100%;
+    display:block;
+}
 
-        main{
-            max-width:1000px;
-            margin:auto;
-            padding:20px;
-        }
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
 
-        .card{
-            background:white;
-            border-radius:12px;
-            padding:25px;
-            margin-bottom:20px;
-            box-shadow:0 2px 6px rgba(0,0,0,0.08);
-        }
+.card{
+    background:#1c1c1c;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+}
 
-        .card h2{
-            color:#1b5e20;
-            margin-bottom:15px;
-        }
+.card h2{
+    color:#f2c300;
+    margin-bottom:15px;
+}
 
-        .card p{
-            line-height:1.7;
-        }
+.card p{
+    line-height:1.7;
+}
 
-        .buttons{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:15px;
-            margin-top:20px;
-        }
+.boton{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#f2c300;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    padding:18px;
+    border-radius:10px;
+    margin-top:15px;
+    font-size:1.1rem;
+}
 
-        .btn{
-            display:block;
-            text-decoration:none;
-            text-align:center;
-            background:#2e7d32;
-            color:white;
-            padding:18px;
-            border-radius:10px;
-            font-weight:bold;
-            transition:0.3s;
-        }
+.referencia{
+    width:100%;
+    border-radius:10px;
+    margin-top:20px;
+}
 
-        .btn:hover{
-            background:#1b5e20;
-        }
-
-        .btn.disabled{
-            background:#9e9e9e;
-            cursor:not-allowed;
-        }
-
-        footer{
-            text-align:center;
-            padding:25px;
-            color:#666;
-            font-size:0.85rem;
-        }
-
-        .contact{
-            margin-top:8px;
-        }
-
-        @media(max-width:768px){
-
-            header h1{
-                font-size:1.6rem;
-            }
-
-            .card{
-                padding:20px;
-            }
-
-        }
-    </style>
+footer{
+    text-align:center;
+    padding:20px;
+    color:#bbb;
+    background:#111;
+}
+</style>
 </head>
+
 <body>
 
 <header>
 
-    logo.png
+icon-192.png
 
-    <h1>AG PILOT CAL</h1>
+<h1>AG PILOT CAL</h1>
 
-    <p>Calibración profesional de pilotos agrícolas</p>
+<p class="subtitulo">
+Calibración profesional de pilotos agrícolas
+</p>
 
 </header>
 
-header.jpg
+portada.jpg
 
 <main>
 
-    <section class="card">
+<div class="card">
 
-        <h2>Bienvenido</h2>
+<h2>Bienvenido</h2>
 
-        <p>
-            AG PILOT CAL es una herramienta diseñada para asistir a técnicos
-            y operadores en la calibración de sistemas de guiado agrícola.
-            El objetivo es realizar ajustes precisos y rápidos durante las
-            operaciones de siembra, simplificando el proceso de trabajo en campo.
-        </p>
+<p>
+AG PILOT CAL es una herramienta desarrollada para asistir a técnicos y operadores durante la calibración de sistemas de guiado agrícola en operaciones de siembra.
+</p>
 
-    </section>
+</div>
 
-    <section class="card">
+<div class="card">
 
-        <h2>Módulos disponibles</h2>
+<h2>Módulo Disponible</h2>
 
-        <div class="buttons">
+#
+John Deere Siembra
+</a>
 
-            jd-siembra.html
-                John Deere Siembra
-            </a>
+</div>
 
-            #
-                Trimble (Próximamente)
-            </a>
+<div class="card">
 
-            #
-                Topcon (Próximamente)
-            </a>
+<h2>Referencia Visual</h2>
 
-            #
-                Raven (Próximamente)
-            </a>
+<p>
+Utilice esta referencia para validar visualmente las mediciones utilizadas durante el proceso de calibración.
+</p>
 
-        </div>
+referencia.png
 
-    </section>
-
-    <section class="card">
-
-        <h2>Objetivo de la aplicación</h2>
-
-        <p>
-            La aplicación permite ingresar mediciones de campo y obtener
-            recomendaciones de ajuste de forma simple, clara y profesional,
-            sin exponer cálculos internos ni procedimientos técnicos al usuario final.
-        </p>
-
-    </section>
+</div>
 
 </main>
 
 <footer>
 
-    <div><strong>AG PILOT CAL</strong></div>
-
-    <div class="contact">
-        Pablo Ortiz | pabloortiz01@hotmail.com
-    </div>
+<strong>AG PILOT CAL</strong><br>
+Pablo Ortiz
 
 </footer>
 
 <script>
-
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js');
-    });
+    navigator.serviceWorker.register('service-worker.js');
 }
-
 </script>
 
 </body>
