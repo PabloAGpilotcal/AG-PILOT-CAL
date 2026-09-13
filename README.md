@@ -63,3 +63,4 @@ Cada vez que subas cambios a GitHub, si no ves los cambios reflejados en el celu
 1. Subí en 1 el número de `CACHE_VERSION` en `service-worker.js` (ej: `v1` → `v2`).
 2. Volvé a hacer `git add . && git commit -m "update" && git push`.
 3. Cerrá y volvé a abrir la app instalada (o esperá unos segundos, se actualiza sola).
+
