@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AG PILOT CAL — Calibración de Pilotos Agrícolas</title>
+<meta name="description" content="Herramienta profesional para calibración de pilotos agrícolas en operaciones de siembra.">
+
+<!-- PWA -->
+<meta name="theme-color" content="#0a0f0c">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AG PILOT CAL">
+
+<!-- social preview -->
+<meta property="og:title" content="AG PILOT CAL">
+<meta property="og:description" content="Calibración profesional de pilotos agrícolas.">
+<meta property="og:image" content="img/portada.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="img/icon-192.png" alt="AG PILOT CAL">
+  <div class="brand">AG PILOT <span>CAL</span></div>
+</header>
+
+<div class="hero">
+  <img src="img/portada.jpg" alt="Cabina de tractor con pantalla de guiado agrícola">
+  <div class="hero-copy">
+    <p>Verificá y corregí el centrado de tu apero en segundos, directo desde el celular en el campo.</p>
+  </div>
+</div>
+
+<main>
+
+  <section>
+    <div class="section-title">MÓDULOS DE CALIBRACIÓN</div>
+    <div class="modules">
+
+      <a class="module-card active" href="modules/john-deere-siembra.html">
+        <div class="icon">🌱</div>
+        <div class="info">
+          <div class="name">John Deere · Siembra</div>
+          <div class="desc">Corrección de Valor C y ancho de apero</div>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+      <div class="module-card disabled">
+        <div class="icon">🚜</div>
+        <div class="info">
+          <div class="name">Case IH<span class="badge">Próximamente</span></div>
+          <div class="desc">Calibración de siembra</div>
+        </div>
+      </div>
+
+      <div class="module-card disabled">
+        <div class="icon">🚜</div>
+        <div class="info">
+          <div class="name">New Holland<span class="badge">Próximamente</span></div>
+          <div class="desc">Calibración de siembra</div>
+        </div>
+      </div>
+
+      <div class="module-card disabled">
+        <div class="icon">🚜</div>
+        <div class="info">
+          <div class="name">Trimble<span class="badge">Próximamente</span></div>
+          <div class="desc">Calibración de siembra</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">SOBRE LA APP</div>
+    <div class="card">
+      <p>
+        AG PILOT CAL es una herramienta desarrollada para asistir a técnicos y operadores
+        durante la calibración de sistemas de guiado agrícola en operaciones de siembra.
+        Elegí la marca de tu piloto, cargá las mediciones tomadas en el surco y obtené
+        al instante el diagnóstico y la corrección exacta a aplicar.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">REFERENCIA VISUAL</div>
+    <div class="card">
+      <p>Utilizá esta referencia para validar visualmente las mediciones utilizadas durante el proceso de calibración.</p>
+      <figure>
+        <img src="img/referencia.png" alt="Esquema de referencia de medición de surcos y marcadores">
+        <figcaption>Distancia entre líneas de guiado y marcadores de siembra.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="contact">
+    <div class="label">Contacto</div>
+    <div class="name">Pablo Ortiz</div>
+    <a href="tel:03583486922">📞 03583 486922</a>
+    <a href="mailto:pabloortiz01@hotmail.com">✉️ pabloortiz01@hotmail.com</a>
+  </div>
+  <strong>AG PILOT CAL</strong>
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js');
+  });
+}
+</script>
+
+</body>
+</html>
