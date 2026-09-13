@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Trimble · Guiado — AG PILOT CAL</title>
+<meta name="theme-color" content="#0a0f0c">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="../img/icon-192.png" alt="AG PILOT CAL">
+  <div class="brand">AG PILOT <span>CAL</span></div>
+  <a class="back" href="../index.html">← Inicio</a>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-title">PTx TRIMBLE · GUIADO</div>
+    <div class="card">
+      <p>Seleccioná tu monitor y sistema de piloto, cargá el ancho teórico de labor y la
+      distancia real medida entre pasadas para obtener el diagnóstico de precisión de guiado.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+
+      <label for="monitor">Monitor</label>
+      <select id="monitor">
+        <option>GFX-350</option>
+        <option>GFX-750</option>
+        <option>GFX-1060</option>
+        <option>CFX-750</option>
+        <option>FMX-1000</option>
+        <option>TMX-2050</option>
+      </select>
+
+      <label for="pilot">Sistema de piloto</label>
+      <select id="pilot">
+        <option>EZ-Steer</option>
+        <option>EZ-Pilot</option>
+        <option>EZ-Pilot Pro</option>
+        <option>Autopilot</option>
+        <option>Autopilot Motor Drive</option>
+      </select>
+
+      <label for="ancho">Ancho teórico de labor (m)</label>
+      <input id="ancho" type="number" step="0.01" inputmode="decimal" placeholder="Ej: 18.00">
+
+      <label for="real">Distancia real medida entre pasadas (m)</label>
+      <input id="real" type="number" step="0.01" inputmode="decimal" placeholder="Ej: 18.05">
+
+      <label for="pasadas">Número de pasadas evaluadas</label>
+      <input id="pasadas" type="number" inputmode="numeric" value="1">
+
+      <label for="tendencia">Tendencia observada en el guiado (opcional)</label>
+      <select id="tendencia">
+        <option value="">Sin tendencia particular</option>
+        <option value="izquierda">Error constante a la izquierda</option>
+        <option value="derecha">Error constante a la derecha</option>
+        <option value="oscilacion">Oscilación alrededor de la línea</option>
+        <option value="lento">Ingreso lento a línea AB</option>
+        <option value="ladera">Desviación en pendientes/laderas</option>
+      </select>
+
+      <button class="primary" onclick="calcularTrimble()">Calcular diagnóstico</button>
+      <button class="secondary" onclick="reiniciarTrimble()">Reiniciar</button>
+
+    </div>
+  </section>
+
+  <section class="result" id="resultadoTrimble">
+    <div class="card">
+      <h2>Resultado</h2>
+
+      <div class="box">
+        <b>Error</b>
+        <div id="rError" class="value"></div>
+      </div>
+
+      <div class="box">
+        <b>Error %</b>
+        <div id="rErrorPct" class="value"></div>
+      </div>
+
+      <div class="box">
+        <b>Corrección sugerida</b>
+        <div id="rCorreccion" class="value"></div>
+      </div>
+
+      <div class="action-list" id="avanzadoBox" style="display:none;">
+        <h3>Diagnóstico avanzado</h3>
+        <div id="rAvanzado"></div>
+      </div>
+
+      <div class="action-list">
+        <h3 id="rEstado"></h3>
+        <div id="rDiagnostico"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="contact">
+    <div class="label">Contacto</div>
+    <div class="name">Pablo Ortiz</div>
+    <a href="tel:03583486922">📞 03583 486922</a>
+    <a href="mailto:pabloortiz01@hotmail.com">✉️ pabloortiz01@hotmail.com</a>
+  </div>
+  <strong>AG PILOT CAL</strong>
+</footer>
+
+<script>
+// Diagnóstico avanzado según tendencia observada — validado por el usuario.
+function diagnosticoAvanzado(error, tendencia){
+    let mensaje = "";
+    if(tendencia === "izquierda"){
+        mensaje = "Error constante a la izquierda: verificar offset lateral de antena.";
+    }
+    if(tendencia === "derecha"){
+        mensaje = "Error constante a la derecha: verificar offset lateral de antena.";
+    }
+    if(tendencia === "oscilacion"){
+        mensaje = "Oscilación alrededor de la línea: disminuir agresividad o gain.";
+    }
+    if(tendencia === "lento"){
+        mensaje = "Ingreso lento a línea AB: aumentar gain de adquisición.";
+    }
+    if(tendencia === "ladera"){
+        mensaje = "Desviación en pendientes: recalibrar IMU/T3.";
+    }
+    return mensaje;
+}
+
+// Fórmula de diagnóstico Trimble PTx — validada por el usuario.
+function calcularTrimble() {
+    let ancho = parseFloat(document.getElementById("ancho").value);
+    let real = parseFloat(document.getElementById("real").value);
+    let pasadas = parseInt(document.getElementById("pasadas").value);
+
+    if(isNaN(ancho) || isNaN(real)){
+        alert("Complete todos los campos");
+        return;
+    }
+    if(isNaN(pasadas) || pasadas < 1){
+        pasadas = 1;
+    }
+
+    let error = real - ancho;
+    let errorCm = error * 100;
+    let errorPorcentaje = (error / ancho) * 100;
+    let correccion = error / pasadas;
+
+    let estado = "";
+    let recomendacion = "";
+    let absError = Math.abs(errorCm);
+
+    if(absError <= 2){
+        estado = "🟢 EXCELENTE";
+        recomendacion = "Guiado dentro de tolerancia.";
+    } else if(absError <= 5){
+        estado = "🟢 MUY BUENO";
+        recomendacion = "Pequeña desviación. Revisar si se busca máxima precisión.";
+    } else if(absError <= 10){
+        estado = "🟡 ACEPTABLE";
+        recomendacion = "Conviene realizar ajuste fino de guiado.";
+    } else {
+        estado = "⚠ FUERA DE TOLERANCIA";
+        if(error < 0){
+            recomendacion = "Existe solape. Revisar offset de antena, ancho de implemento y ganancia.";
+        } else {
+            recomendacion = "Existe franja sin cubrir. Revisar offset de antena, adquisición de línea y configuración del implemento.";
+        }
+    }
+
+    document.getElementById("rError").innerHTML = errorCm.toFixed(1) + " cm";
+    document.getElementById("rErrorPct").innerHTML = errorPorcentaje.toFixed(2) + " %";
+    document.getElementById("rCorreccion").innerHTML = (correccion*100).toFixed(1) + " cm";
+    document.getElementById("rEstado").innerHTML = estado;
+    document.getElementById("rDiagnostico").innerHTML = recomendacion;
+
+    let tendencia = document.getElementById("tendencia").value;
+    let mensajeAvanzado = diagnosticoAvanzado(error, tendencia);
+    if(mensajeAvanzado){
+        document.getElementById("rAvanzado").innerHTML = mensajeAvanzado;
+        document.getElementById("avanzadoBox").style.display = "block";
+    } else {
+        document.getElementById("avanzadoBox").style.display = "none";
+    }
+
+    document.getElementById("resultadoTrimble").style.display = "block";
+}
+
+function reiniciarTrimble(){
+    document.getElementById("ancho").value = "";
+    document.getElementById("real").value = "";
+    document.getElementById("pasadas").value = "1";
+    document.getElementById("monitor").selectedIndex = 0;
+    document.getElementById("pilot").selectedIndex = 0;
+    document.getElementById("tendencia").selectedIndex = 0;
+    document.getElementById("avanzadoBox").style.display = "none";
+    document.getElementById("resultadoTrimble").style.display = "none";
+}
+</script>
+
+</body>
+</html>
