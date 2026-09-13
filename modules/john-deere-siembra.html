@@ -118,7 +118,7 @@ function calcular(){
     let teorico = surco * 2;
     let suma = izq + der;
     let diferenciaCentro = Math.abs(izq - der);
-    let valorC = (diferenciaCentro / 4) * 10;
+    let valorC = diferenciaCentro / 4;
 
     let direccion = "";
     if(izq > der){
@@ -148,10 +148,10 @@ function calcular(){
     }
 
     document.getElementById("estado").innerHTML = estado;
-    document.getElementById("valorC").innerHTML = valorC.toFixed(2) + " m<br>" + direccion;
+    document.getElementById("valorC").innerHTML = valorC.toFixed(3) + " m<br>" + direccion;
     document.getElementById("anchoApero").innerHTML = textoApero;
     document.getElementById("acciones").innerHTML =
-        "1. Modificar Valor C: " + valorC.toFixed(2) + " m<br><br>" +
+        "1. Modificar Valor C: " + valorC.toFixed(3) + " m<br><br>" +
         "2. " + textoApero + "<br><br>" +
         "3. Verificar nuevamente en campo.";
 
