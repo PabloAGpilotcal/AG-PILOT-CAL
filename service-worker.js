@@ -1,6 +1,6 @@
 // AG PILOT CAL — service worker
 // Sube CACHE_VERSION cada vez que cambies archivos para forzar la actualización.
-const CACHE_VERSION = 'ag-pilot-cal-v3';
+const CACHE_VERSION = 'ag-pilot-cal-v4';
 
 const APP_SHELL = [
   './',
