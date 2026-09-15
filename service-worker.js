@@ -1,6 +1,6 @@
 // AG PILOT CAL — service worker
 // Sube CACHE_VERSION cada vez que cambies archivos para forzar la actualización.
-const CACHE_VERSION = 'ag-pilot-cal-v7';
+const CACHE_VERSION = 'ag-pilot-cal-v15';
 
 const APP_SHELL = [
   './',
@@ -9,6 +9,10 @@ const APP_SHELL = [
   './css/style.css',
   './modules/john-deere-siembra.html',
   './modules/trimble.html',
+  './modules/case-ih.html',
+  './modules/cv-siembra.html',
+  './modules/fertilizante.html',
+  './modules/juego-centrado.html',
   './img/icon-192.png',
   './img/icon-512.png',
   './img/icon-192-maskable.png',
@@ -59,7 +63,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request, { cache: 'no-store' })
       .then((response) => {
         const clone = response.clone();
         caches.open(CACHE_VERSION).then((cache) => cache.put(event.request, clone));
