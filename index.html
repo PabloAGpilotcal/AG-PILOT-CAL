@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>AG PILOT CAL — Calibración de Pilotos Agrícolas</title>
-<meta name="description" content="Herramienta profesional para calibración de pilotos agrícolas en operaciones de siembra.">
+<title>AG PILOT CAL — Herramientas para el Trabajo de Precisión</title>
+<meta name="description" content="Calibración de guiado, siembra y fertilización para el trabajo de precisión en el campo.">
 
 <!-- PWA -->
 <meta name="theme-color" content="#0a0f0c">
@@ -17,7 +17,7 @@
 
 <!-- social preview -->
 <meta property="og:title" content="AG PILOT CAL">
-<meta property="og:description" content="Calibración profesional de pilotos agrícolas.">
+<meta property="og:description" content="Calibración de guiado, siembra y fertilización para el trabajo de precisión en el campo.">
 <meta property="og:image" content="img/portada.jpg">
 <meta property="og:type" content="website">
 
@@ -37,14 +37,34 @@
 <div class="hero">
   <img src="img/portada.jpg" alt="Cabina de tractor con pantalla de guiado agrícola">
   <div class="hero-copy">
-    <p>Verificá y corregí el centrado de tu apero en segundos, directo desde el celular en el campo.</p>
+    <p>Calibración de guiado, siembra y fertilización, directo desde el celular en el campo.</p>
   </div>
 </div>
 
 <main>
 
   <section>
-    <div class="section-title">MÓDULOS DE CALIBRACIÓN</div>
+    <div class="section-title">👋 UN SALUDO DE PABLO</div>
+    <div class="card">
+      <p>
+        <strong>¡Hola! Soy Pablo Ortiz.</strong><br><br>
+        Hace más de 11 años trabajo dentro de la red John Deere: empecé como técnico
+        y fui orientándome al diagnóstico, la calibración y el soporte, para aprovechar
+        al máximo la tecnología aplicada a la agricultura de precisión. Hoy trabajo en
+        soporte técnico remoto, ayudando a técnicos y clientes en el campo.<br><br>
+        En el camino vi lo mismo una y otra vez: calibraciones a ojo, cuentas en un
+        papel, errores que se repetían por no tener algo rápido a mano arriba del
+        tractor. De ahí nació AG PILOT CAL: para tener en el celular, sin señal ni
+        excusas, lo que a mí me hubiese servido en tantas calibraciones a campo.<br><br>
+        Espero que te sea tan útil como lo es para mí.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">MÓDULOS DISPONIBLES</div>
+
+    <div class="category-title">🛰️ Calibración de guiado</div>
     <div class="modules">
 
       <a class="module-card active" href="modules/john-deere-siembra.html">
@@ -56,21 +76,14 @@
         <div class="chevron">›</div>
       </a>
 
-      <div class="module-card disabled">
-        <div class="icon">🚜</div>
+      <a class="module-card active" href="modules/case-ih.html">
+        <div class="icon">🔴</div>
         <div class="info">
-          <div class="name">Case IH<span class="badge">Próximamente</span></div>
-          <div class="desc">Calibración de siembra</div>
+          <div class="name">Case IH · Apero</div>
+          <div class="desc">Compensación de apero y verificación de línea AB</div>
         </div>
-      </div>
-
-      <div class="module-card disabled">
-        <div class="icon">🚜</div>
-        <div class="info">
-          <div class="name">New Holland<span class="badge">Próximamente</span></div>
-          <div class="desc">Calibración de siembra</div>
-        </div>
-      </div>
+        <div class="chevron">›</div>
+      </a>
 
       <a class="module-card active" href="modules/trimble.html">
         <div class="icon">🛰️</div>
@@ -81,7 +94,58 @@
         <div class="chevron">›</div>
       </a>
 
+      <div class="module-card disabled">
+        <div class="icon">🚜</div>
+        <div class="info">
+          <div class="name">New Holland<span class="badge">Próximamente</span></div>
+          <div class="desc">Calibración de siembra</div>
+        </div>
+      </div>
+
     </div>
+
+    <div class="category-title">🌱 Siembra</div>
+    <div class="modules">
+
+      <a class="module-card active" href="modules/cv-siembra.html">
+        <div class="icon">📏</div>
+        <div class="info">
+          <div class="name">CV de Siembra</div>
+          <div class="desc">Coeficiente de variación y uniformidad de distribución</div>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+    </div>
+
+    <div class="category-title">🧪 Fertilización</div>
+    <div class="modules">
+
+      <a class="module-card active" href="modules/fertilizante.html">
+        <div class="icon">🧪</div>
+        <div class="info">
+          <div class="name">Dosis de fertilizante</div>
+          <div class="desc">Kilos a recolectar en prueba a campo</div>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+    </div>
+
+    <div class="category-title">🎮 Extra</div>
+    <div class="modules">
+
+      <a class="module-card active" href="modules/juego-centrado.html">
+        <div class="icon">🎯</div>
+        <div class="info">
+          <div class="name">Centrá el Apero</div>
+          <div class="desc">Practicá tu puntería para calibrar</div>
+        </div>
+        <div class="chevron">›</div>
+      </a>
+
+    </div>
+
   </section>
 
   <section>
@@ -89,9 +153,9 @@
     <div class="card">
       <p>
         AG PILOT CAL es una herramienta desarrollada para asistir a técnicos y operadores
-        durante la calibración de sistemas de guiado agrícola en operaciones de siembra.
-        Elegí la marca de tu piloto, cargá las mediciones tomadas en el surco y obtené
-        al instante el diagnóstico y la corrección exacta a aplicar.
+        en el trabajo de precisión en el campo: calibración de guiado, siembra y
+        fertilización. Elegí el módulo que necesites, cargá las mediciones tomadas a
+        campo y obtené al instante el diagnóstico y la corrección exacta a aplicar.
       </p>
     </div>
   </section>
@@ -113,7 +177,7 @@
   <div class="contact">
     <div class="label">Contacto</div>
     <div class="name">Pablo Ortiz</div>
-    <a href="tel:03583486922">📞 03583 486922</a>
+    <a href="https://wa.me/5493583486922" target="_blank" rel="noopener">💬 03583 486922</a>
     <a href="mailto:pabloortiz01@hotmail.com">✉️ pabloortiz01@hotmail.com</a>
   </div>
   <strong>AG PILOT CAL</strong>
